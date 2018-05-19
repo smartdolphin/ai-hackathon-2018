@@ -188,7 +188,7 @@ if __name__ == '__main__':
             output = PReLU()(output)
             avg_pool = GlobalAveragePooling1D()(output)
             max_pool = GlobalMaxPooling1D()(output)
-            from Attention import Attention
+            from attention import Attention
             att = Attention(config.strmaxlen, user_mask=zeroMask.get_mask())(output)
             output = concatenate([avg_pool, max_pool, att])
             output = Dropout(dropout_rate)(output)
